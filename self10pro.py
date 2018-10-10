@@ -51,7 +51,7 @@ pb8MID = pb8.getProfile().mid
 pb9MID = pb9.getProfile().mid
 pb10MID = pb10.getProfile().mid
 mid = sb.getProfile().mid
-PRANK = [pb1,pb2,pb3,pb4,pb5,pb6,pb7,pb8,pb9,pb10,sb]
+PRANK = [sb,pb1,pb2,pb3,pb4,pb5,pb6,pb7,pb8,pb9,pb10]
 Bots = [sbMID,pb1MID,pb2MID,pb3MID,pb4MID,pb5MID,pb6MID,pb7MID,pb8MID,pb9MID,pb10MID]
 Prankmember = []
 Prankqr = []
@@ -61,11 +61,11 @@ settings={
     "lang":"JP",
     "prankRespon": True,
     "prankcontact":False,
-    "message": "THANKS FOR ADD ME\nCREATOR BY\nhttp://line.me/ti/p/~adiputra.95",
+    "message": "我肆機器 加我有事?",
     "prankTL":False,
     "prankAdd":False,
     "keyCommand": ".",
-    "server": "u0ac948397fbc732bd3bc5ca273faa698",
+    "server": "ufe1707ae9b2ff7ab61505795b7995440",
     "conection":True,
     "setKey": False,
     "prankJoin":False,
@@ -83,15 +83,15 @@ def waktu(secs):
     mins, secs = divmod(secs,60)
     hours, mins = divmod(mins,60)
     days, hours = divmod(hours, 24)
-    return '%02d Hari %02d Jam %02d Menit %02d Detik' % (days, hours, mins, secs)
+    return '%02d 天 %02d 小時 %02d 分鐘 %02d 秒' % (days, hours, mins, secs)
 def runtime(secs):
     mins, secs = divmod(secs,60)
     hours, mins = divmod(mins,60)
     days, hours = divmod(hours, 24)
-    return '%02d Hari %02d Jam %02d Menit %02d Detik' % (days, hours, mins, secs)
+    return '%02d 天 %02d 小時 %02d 分鐘 %02d 秒' % (days, hours, mins, secs)
 def logError(text):
     sb.log("[ ERROR ] " + str(text))
-    tz = pytz.timezone("Asia/Jakarta")
+    tz = pytz.timezone("Asia/Taipei")
     timeNow = datetime.now(tz=tz)
     timeHours = datetime.strftime(timeNow,"(%H:%M)")
     day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday"]
@@ -134,7 +134,7 @@ def prankhelp():
     else:
         key = ''
     prankMessage = "║╠ |ᴘʀᴀʙᴋʙᴏᴛs ᴄʀᴇᴀᴛᴏʀ| ╣║\n" + \
-                  "║╠•" + key + "pkick *tag" + "\n" + \
+                  "║╠•" + key + "pkick @" + "\n" + \
                   "║╠•" + key + "pjoin" + "\n" + \
                   "║╠•" + key + "pbye" + "\n" + \
                   "║╠•" + key + "banlist" + "\n" + \
@@ -160,14 +160,14 @@ def prankhelp():
                   "║╠•" + key + "pendinglist" + "\n" + \
                   "║╠•" + key + "gruplist" + "\n" + \
                   "║╠•" + key + "gcreator" + "\n" + \
-                  "║╠•" + key + "getmid *tag" + "\n" + \
-                  "║╠•" + key + "getpict *tag" + "\n" + \
-                  "║╠•" + key + "getcontact *tag" + "\n" + \
-                  "║╠•" + key + "getstatus *tag" + "\n" + \
-                  "║╠•" + key + "getname *tag" + "\n" + \
+                  "║╠•" + key + "getmid @" + "\n" + \
+                  "║╠•" + key + "getpict @" + "\n" + \
+                  "║╠•" + key + "getcontact @" + "\n" + \
+                  "║╠•" + key + "getstatus @" + "\n" + \
+                  "║╠•" + key + "getname @" + "\n" + \
                   "║╠•" + key + "gpict" + "\n" + \
                   "║╠•" + key + "gname" + "\n" + \
-                  "║╠•" + key + "gname *txt" + "\n" + \
+                  "║╠•" + key + "gname 群名" + "\n" + \
                   "║╠•" + key + "ginfo" + "\n" + \
                   "║╠•" + key + "gid" + "\n" + \
                   "║╠•" + key + "gurl" + "\n" + \
@@ -186,8 +186,8 @@ def bot(op):
         if op.type == 5:
             if settings["prankAdd"] == True:
                 sb.findAndAddContactsByMid(op.param1)
-            pb1.sendMessage(op.param1, "Makasih sudah add ini crator kami\nJangan lupa subcrabe channelnya kak\nhttps://www.youtube.com/channel/UCycBrqSWEHdk-slnhUmGWiQ")
-            pb1.sendContact(op.param1, "u0ac948397fbc732bd3bc5ca273faa698")
+            pb1.sendMessage(op.param1, "安安 感謝您加我好友\n以下友資肆我的作者")
+            pb1.sendContact(op.param1, "ufe1707ae9b2ff7ab61505795b7995440")
             sb.sendMessage(op.param1, settings["message"])
         if op.type == 11:
             if op.param3 == '1':
